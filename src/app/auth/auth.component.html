@@ -1,0 +1,10 @@
+<p>Введите логин:</p>
+<label>
+    <input [(ngModel)]="login" [type]="'text'" />
+</label>
+<p>Введите пароль:</p>
+<label>
+    <input [(ngModel)]="password" [type]="'text'" />
+</label>
+<button (click)="auth()">Войти</button>
+<p *ngIf="incorrect_password">В крайний раз был введен некорретный пароль!</p>

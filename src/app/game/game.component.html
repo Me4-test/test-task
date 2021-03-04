@@ -1,0 +1,16 @@
+<ng-container *ngIf="!is_playing; else playing">
+    <p *ngIf="last_score >= 0">Максимальное количество очков: {{last_score}}</p>
+    <button (click)="play()">PLAY</button>
+</ng-container>
+
+<ng-template #playing>
+    <p>{{question.text}}</p>
+    <ng-container *ngIf="question.correct_answer % 2 === 0; else mirror">
+        <button (click)="click(question.left)">{{question.left}}</button>
+        <button (click)="click(question.right)">{{question.right}}</button>
+    </ng-container>
+    <ng-template #mirror>
+        <button (click)="click(question.right)">{{question.right}}</button>
+        <button (click)="click(question.left)">{{question.left}}</button>
+    </ng-template>
+</ng-template>
